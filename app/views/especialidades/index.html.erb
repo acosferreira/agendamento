@@ -1,0 +1,24 @@
+<h1>Listing especialidades</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Duration</th>
+    <th>Value</th>
+  </tr>
+
+<% @especialidades.each do |especialidade| %>
+  <tr>
+    <td><%=h especialidade.name %></td>
+    <td><%=h especialidade.duration %></td>
+    <td><%=h especialidade.value %></td>
+    <td><%= link_to 'Show', especialidade %></td>
+    <td><%= link_to 'Edit', edit_especialidade_path(especialidade) %></td>
+    <td><%= link_to 'Destroy', especialidade, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New especialidade', new_especialidade_path %>

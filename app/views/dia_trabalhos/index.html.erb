@@ -1,0 +1,22 @@
+<h1>Listing dia_trabalhos</h1>
+
+<table>
+  <tr>
+    <th>Profissional especialidade</th>
+    <th>Semana</th>
+  </tr>
+
+<% @dia_trabalhos.each do |dia_trabalho| %>
+  <tr>
+    <td><%=h dia_trabalho.profissional_especialidade_id %></td>
+    <td><%=h dia_trabalho.semana_id %></td>
+    <td><%= link_to 'Show', dia_trabalho %></td>
+    <td><%= link_to 'Edit', edit_dia_trabalho_path(dia_trabalho) %></td>
+    <td><%= link_to 'Destroy', dia_trabalho, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New dia_trabalho', new_dia_trabalho_path %>

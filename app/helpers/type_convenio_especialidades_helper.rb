@@ -1,0 +1,2 @@
+module TypeConvenioEspecialidadesHelper
+end

@@ -1,0 +1,25 @@
+<%- form_remote_tag :url => @action_url, :method => :post, :update => 'report', :loading => "$('report').hide();$('loading').show();", :loaded => "$('loading').hide();$('report').show();" do -%>
+  <table cellspacing="2" border="0">
+    <tr>
+      <td>Profissional:</td>
+      <td>
+        <%= select_tag "profissional_id" ,"<option></option>"+options_for_select(Profissional.all.collect{ |u| [u.name, u.id] })  %>
+      </td>
+    </tr>
+    <tr>
+      <td>Data</td>
+      <td><%= calendar_date_select_tag "data","" %></td>
+    </tr>
+    
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag "Gerar" %></td>
+    </tr>
+  </table>
+<%- end -%>
+
+<div id="loading" style="display: none;">
+  <%= image_tag 'loading.gif' %> Loading...
+</div>
+
+<div id="report"></div>

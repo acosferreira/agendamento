@@ -1,0 +1,2 @@
+module ProfissionalEspecialidadesHelper
+end

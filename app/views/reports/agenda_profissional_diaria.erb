@@ -1,0 +1,147 @@
+<p>
+  <%= link_to 'Export to Excel', agenda_profissional_diaria_to_xls_reports_url(:profissional_id => params[:profissional_id], :data=> params[:data]) %>
+</p>
+<div id="price_table">
+  <table border="0" cellpadding="6" cellspacing="1" class="records table_prices">
+    <thead>
+      <tr>
+
+
+        <th id="fixedLine"> Horario </th>
+        <th id="fixedLine"> Cliente</th>
+        <th id="fixedLine"> Serviço</th>
+        <th id="fixedLine"> Valor do Serviço</th>
+        <th id="fixedLine"> Agendado por:</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @agendas.each do |agenda| %>
+        <tr>
+          <td><%= agenda.horario %></td>
+          <td ><%= agenda.cliente.name %></td>
+          <td ><%= agenda.profissional_especialidade.especialidade.name %></td>
+          <td >R$ <%= agenda.value_receive %></td>
+          <td ><%= agenda.usuario.name unless agenda.usuario.blank? %></td>
+
+         
+        <% end %>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<style type="text/css">
+  .fht-table,
+  .fht-table thead,
+  .fht-table tfoot,
+  .fht-table tbody,
+  .fht-table tr,
+  .fht-table th,
+  .fht-table td {
+    /* position */
+    margin: 0;
+
+    /* size */
+    padding: 0;
+
+    /* text */
+    font-size: 100%;
+    font: inherit;
+    vertical-align: top;
+  }
+
+  .fht-table {
+    /* appearance */
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* @end */
+
+  /* @group Content */
+
+  .fht-table-wrapper,
+  .fht-table-wrapper .fht-thead,
+  .fht-table-wrapper .fht-tfoot,
+  .fht-table-wrapper .fht-fixed-column .fht-tbody,
+  .fht-table-wrapper .fht-fixed-body .fht-tbody,
+  .fht-table-wrapper .fht-tbody {
+    /* appearance */
+    overflow: hidden;
+
+    /* position */
+    position: relative;
+  }
+
+  .fht-table-wrapper .fht-fixed-body .fht-tbody,
+  .fht-table-wrapper .fht-tbody {
+    /* appearance */
+    overflow: auto;
+  }
+
+  .fht-table-wrapper .fht-table .fht-cell {
+    /* appearance */
+    overflow: hidden;
+
+    /* size */
+    height: 1px;
+  }
+
+  .fht-table-wrapper .fht-fixed-column,
+  .fht-table-wrapper .fht-fixed-body {
+    /* position */
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .fht-table-wrapper .fht-fixed-column {
+    /* position */
+    z-index: 1;
+  }
+
+  .fht-table tbody tr td {
+    padding: 15px;
+    border-bottom: 1px dashed #BEC6CD;
+    border-left: 1px solid #C5DBF7;
+    color: #333333;
+    font-family: Verdana,sans-serif;
+    font-size: 11px;
+    padding: 5px 4px;
+  }
+
+  /*.fht-table-wrapper .fht-table .fht-cell {
+    min-width: 100px !important;
+  }*/
+
+  .fht-table tbody tr:first-child td {
+    min-width: 150px !important;
+  }
+
+  .fht-table tbody tr:first-child td {
+    min-width: 150px !important;
+  }
+
+  #fixedColumn {
+    background-color: #C8D1D7;
+    border-bottom: 2px #BEC6CD;
+    padding-top: 10px;
+  }
+
+  #fixedLine {
+    background-color: #608099;
+    text-align: left;
+    border-left: 1px solid #C5DBF7;
+    padding-top: 10px;
+  }
+</style>
+
+<script type="text/javascript">
+  $j(document).ready(function() {
+    $j('.table_prices').fixedHeaderTable({ footer: true, fixedColumn: true,  height: 500 });
+
+  });
+</script>

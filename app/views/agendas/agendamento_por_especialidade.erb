@@ -1,0 +1,54 @@
+<form id="agendamento_por_especialidade">
+  <div id="warning"><p> <%=  flash[:warning]%>  </p></div>
+  <table border="2">
+    <tr>
+      <% unless @profissionals.blank? %>
+        <% @profissionals.each do |profissional| %>
+          <th><%=profissional.profissional.name %></th>
+          <td>
+            <%@lista_atendimento.each do |lista|%>
+
+              <table>
+                <%if lista[:profissional] == profissional.profissional.id %>
+                  <%hora = lista[:horario].gsub(":",'')%>
+
+                  <tr>
+                    <td> <%= lista[:horario]%></td>
+                    <% unless  lista[:cliente].blank?  %>
+
+                      <td><%=lista[:cliente]%> </td>
+                      <td><%=link_to_remote(image_tag("agendamento.jpg", :size => '15x15', :border=>0, :title => 'Reagendar', :alt => 'Reagendar'),:update => "new_#{hora}_#{lista[:profissional]}",
+                          :url => {:controller => 'agendas', :action => :reagendar},
+                          :with => "'horario='+#{hora}+'&profissional='+#{lista[:profissional]}",
+                          :popup=>['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no'])%></td>
+
+                      <td><%=link_to_remote(image_tag("cancelar.gif", :size => '20x15', :border=>0, :title => 'Cancelar', :alt => 'Cancelar'),:update => "html",
+                          :url => {:controller => 'agendas', :action => :cancelar},
+                          :with => "'horario='+#{hora}+'&profissional='+#{lista[:profissional]}",
+                          :popup=>['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no'])%></td>
+
+                    <%else%>
+
+                      <td align="center"><%=link_to_remote(image_tag("agendar.jpg", :size => '20x20', :border=>0, :title => 'Agendar', :alt => 'Agendar'), :update => "new_#{hora}_#{lista[:profissional]}",
+                          :url => {:controller => 'agendas', :action => :agendar},
+                          :with => "'horario='+#{hora}+'&profissional='+#{lista[:profissional]}",
+                          :popup=>['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no'])%> </td>
+                      
+                    <%end%>
+                  <div id="new_<%= hora%>_<%=lista[:profissional]%>"></div>
+            </tr>
+          <%end%>
+        </table>
+      <%end%>
+    </td>
+  <%end%>
+<%end%>
+</tr>
+</table>
+<br/>
+<div id="new">
+</div>
+</form>
+
+
+

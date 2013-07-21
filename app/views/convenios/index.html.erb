@@ -1,0 +1,24 @@
+<h1>Listing convenios</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Telephone</th>
+    <th>Site</th>
+  </tr>
+
+<% @convenios.each do |convenio| %>
+  <tr>
+    <td><%=h convenio.name %></td>
+    <td><%=h convenio.telephone %></td>
+    <td><%=h convenio.site %></td>
+    <td><%= link_to 'Show', convenio %></td>
+    <td><%= link_to 'Edit', edit_convenio_path(convenio) %></td>
+    <td><%= link_to 'Destroy', convenio, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New convenio', new_convenio_path %>

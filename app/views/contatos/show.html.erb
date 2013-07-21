@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @contato.name %>
+</p>
+
+<p>
+  <b>Tipo contato:</b>
+  <%=h @contato.tipo_contato %>
+</p>
+
+<p>
+  <b>Paciente:</b>
+  <%=h @contato.paciente_id %>
+</p>
+
+<p>
+  <b>Estabelecimento:</b>
+  <%=h @contato.estabelecimento_id %>
+</p>
+
+<p>
+  <b>Profissional:</b>
+  <%=h @contato.profissional_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_contato_path(@contato) %> |
+<%= link_to 'Back', contatos_path %>

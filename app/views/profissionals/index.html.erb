@@ -1,0 +1,40 @@
+<h1>Listing profissionals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Number</th>
+    <th>Complement</th>
+    <th>Neighborhood</th>
+    <th>City</th>
+    <th>Uf</th>
+    <th>Gender</th>
+    <th>Birth date</th>
+    <th>Crm</th>
+    <th>Percentage</th>
+  </tr>
+
+<% @profissionals.each do |profissional| %>
+  <tr>
+    <td><%=h profissional.name %></td>
+    <td><%=h profissional.address %></td>
+    <td><%=h profissional.number %></td>
+    <td><%=h profissional.complement %></td>
+    <td><%=h profissional.neighborhood %></td>
+    <td><%=h profissional.city %></td>
+    <td><%=h profissional.uf %></td>
+    <td><%=h profissional.gender %></td>
+    <td><%=h profissional.birth_date %></td>
+    <td><%=h profissional.crm %></td>
+    <td><%=h profissional.percentage %></td>
+    <td><%= link_to 'Show', profissional %></td>
+    <td><%= link_to 'Edit', edit_profissional_path(profissional) %></td>
+    <td><%= link_to 'Destroy', profissional, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New profissional', new_profissional_path %>

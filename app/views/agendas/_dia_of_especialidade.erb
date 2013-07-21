@@ -1,0 +1,9 @@
+<%ignore_dates= ["date.getDay() != 0 &&", "date.getDay() != 1 &&", "date.getDay() != 2 &&", "date.getDay() != 3 &&", "date.getDay() != 4 &&", "date.getDay() != 5 &&", "date.getDay() != 6"]%>
+<% @weekday.each do |week|%>
+  <%ignore = "date.getDay() != #{week} &&"%>
+  <%ignore_dates.reject!{|r| r==ignore}%>
+<%end%>
+
+<% ignore_dates=  ignore_dates.to_s%>
+<%ignore_dates%>
+<%= calendar_date_select_tag "data","", :valid_date_check => ignore_dates  %>

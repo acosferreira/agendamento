@@ -1,0 +1,74 @@
+<script type="text/javascript">
+  loadOptions = function(){
+    var Pai = $j("#estabelecimento_id").parents("tr");
+    Pai.contents().find("#estabelecimento_id option:selected").each(function (data) {
+      var str = $j(this).text();
+      var value = $j(this).val();
+      $j.post('/agendas/load_especialidade_of_estabelecimento', { 'estab': value }, function(data) {
+        $j('#especialidade_id').html('').append(data);
+        var shop = []
+        $j("#especialidade_id").append(function() {
+          $j("#especialidade_id").find('option').each(function() {
+            shop.push($j(this).text());
+          });
+        });
+      });
+    });
+  }
+
+  get_dia_especialidade = function(){
+    var Pai = $j("#especialidade_id").parents("tr");
+    Pai.contents().find("#especialidade_id option:selected").each(function (data) {
+      var value = $j(this).val();
+      $j.post( '/agendas/get_dia_of_especialidade', { 'especialidade_selected': value }, function(data) {
+      });
+    });
+  }
+
+  get_valid_dates_to_agenda= function(){
+    var Pai = $j("#data").parents("tr");
+    
+    Pai.contents().find("#data").each(function (){
+      
+      a = $j.post( '/agendas/get_valid_dates_to_agenda')
+      $j.post( '/agendas/get_valid_dates_to_agenda',  { }, function() {
+        
+      });
+    });
+  }
+</script>
+
+<form id="agendamento">
+  <table border ="1">
+
+      <div id="warning"><p> <%=  flash[:warning]%>  </p></div>
+
+    <tr>
+      <td>
+        Estabelecimento:</td><td><%= select_tag "estabelecimento_id" ,"<option></option>"+options_for_select(Estabelecimento.all.collect{ |u| [u.name, u.id] }),:onchange => 'loadOptions();'%>
+      </td>
+    </tr>
+    <tr>
+      <td>Especialidade:</td><td><%= select_tag "especialidade_id" ,"<option></option>", :class=>"especialidade", :onchange=>"get_dia_especialidade();"%>  </td>
+    </tr>
+
+    <tr>
+      <td>Data:</td><td><div id="data_select"><%= calendar_date_select_tag "data","", :valid_date_check => "date.getDay() != 1 && date.getDay() != 0", :after_show => "get_dia_especialidade();"  %></div></td>
+    </tr>
+
+    <tr >
+      <td colspan="2" align="center">
+        <%= button_to_remote("Visualizar", :update => 'html',
+          :url => {:controller => 'agendas', :action => :agendamento_por_especialidade},
+          :with => "'especialidade='+$('especialidade_id').value+'&data='+$('data').value+'&estabelecimento='+$('estabelecimento_id').value" ) %>
+      </td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <div id="html">
+  </div>
+
+</form>
+

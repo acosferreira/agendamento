@@ -1,0 +1,19 @@
+<h1>New profissional_especialidade</h1>
+
+<% form_for(@profissional_especialidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :especialidade_id %><br />
+    <%= f.text_field :especialidade_id %>
+  </p>
+  <p>
+    <%= f.label :profissional_id %><br />
+    <%= f.text_field :profissional_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', profissional_especialidades_path %>

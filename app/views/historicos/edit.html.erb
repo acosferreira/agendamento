@@ -1,0 +1,20 @@
+<h1>Editing historico</h1>
+
+<% form_for(@historico) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :paciente_id %><br />
+    <%= f.text_field :paciente_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @historico %> |
+<%= link_to 'Back', historicos_path %>

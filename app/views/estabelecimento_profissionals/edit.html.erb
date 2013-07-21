@@ -1,0 +1,20 @@
+<h1>Editing estabelecimento_profissional</h1>
+
+<% form_for(@estabelecimento_profissional) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :profissional_id %><br />
+    <%= f.text_field :profissional_id %>
+  </p>
+  <p>
+    <%= f.label :estabelecimento_id %><br />
+    <%= f.text_field :estabelecimento_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @estabelecimento_profissional %> |
+<%= link_to 'Back', estabelecimento_profissionals_path %>

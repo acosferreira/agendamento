@@ -1,0 +1,22 @@
+<h1>Listing historicos</h1>
+
+<table>
+  <tr>
+    <th>Paciente</th>
+    <th>Name</th>
+  </tr>
+
+<% @historicos.each do |historico| %>
+  <tr>
+    <td><%=h historico.paciente_id %></td>
+    <td><%=h historico.name %></td>
+    <td><%= link_to 'Show', historico %></td>
+    <td><%= link_to 'Edit', edit_historico_path(historico) %></td>
+    <td><%= link_to 'Destroy', historico, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New historico', new_historico_path %>

@@ -1,0 +1,24 @@
+<h1>Editing type_convenio</h1>
+
+<% form_for(@type_convenio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :coverage %><br />
+    <%= f.text_field :coverage %>
+  </p>
+  <p>
+    <%= f.label :convenio_id %><br />
+    <%= f.text_field :convenio_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @type_convenio %> |
+<%= link_to 'Back', type_convenios_path %>

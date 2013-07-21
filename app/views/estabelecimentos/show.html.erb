@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @estabelecimento.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @estabelecimento.address %>
+</p>
+
+<p>
+  <b>Number:</b>
+  <%=h @estabelecimento.number %>
+</p>
+
+<p>
+  <b>Complement:</b>
+  <%=h @estabelecimento.complement %>
+</p>
+
+<p>
+  <b>Neighborhood:</b>
+  <%=h @estabelecimento.neighborhood %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @estabelecimento.city %>
+</p>
+
+<p>
+  <b>Uf:</b>
+  <%=h @estabelecimento.uf %>
+</p>
+
+
+<%= link_to 'Edit', edit_estabelecimento_path(@estabelecimento) %> |
+<%= link_to 'Back', estabelecimentos_path %>

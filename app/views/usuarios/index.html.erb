@@ -1,0 +1,30 @@
+<h1>Listing usuarios</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Login</th>
+    <th>Email</th>
+    <th>Hashed password</th>
+    <th>Salt password</th>
+    <th>Grupo</th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%=h usuario.name %></td>
+    <td><%=h usuario.login %></td>
+    <td><%=h usuario.email %></td>
+    <td><%=h usuario.hashed_password %></td>
+    <td><%=h usuario.salt_password %></td>
+    <td><%=h usuario.grupo_id %></td>
+    <td><%= link_to 'Show', usuario %></td>
+    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Destroy', usuario, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New usuario', new_usuario_path %>

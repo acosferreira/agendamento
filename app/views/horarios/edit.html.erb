@@ -1,0 +1,16 @@
+<h1>Editing horario</h1>
+
+<% form_for(@horario) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :hora %><br />
+    <%= f.time_select :hora %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @horario %> |
+<%= link_to 'Back', horarios_path %>

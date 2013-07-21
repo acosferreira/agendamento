@@ -1,0 +1,111 @@
+<style type="text/css">
+  .menu{
+    border:none;
+    border:0px;
+    padding:0px;
+    font-family:verdana,geneva,arial,helvetica,sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    color: #fff;
+    width: 100%;
+    z-index:200;
+    margin: 0 0 0 0;
+  }
+  .menu ul{
+    color:#666666;
+    background:url(../images/background_menu.gif) top left repeat-x;
+            /*background-color: #e0e0e0;*/
+            background-color: #F1F3F3;
+    height:45px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .menu li{
+    float:left;
+  }
+  .menu li a{
+    color:#666666;
+    display:block;
+    font-weight:bold;
+    line-height:22px;
+    padding:0px 10px;
+    text-align:center;
+    text-decoration:none;
+  }
+  .menu li a:hover{
+    color:#000;
+    text-decoration:none;
+    background: none;
+  }
+  .menu li ul{
+  /*  background:#e6f2ff;*/
+    border-left:2px solid #c5dbf7;
+    border-right:2px solid #c5dbf7;
+    border-bottom:2px solid #c5dbf7;
+    display:none;
+    height:auto;
+    filter:alpha(opacity=95);
+    opacity:0.95;
+    position:absolute;
+    width:170px;
+    z-index:200;
+  }
+  .menu li:hover ul{
+    display:block;
+    top: auto;
+    z-index:200;
+  }
+  .menu li li {
+    display:block;
+    float:none;
+    width:225px;
+  }
+  .menu li ul a{
+    display:block;
+    font-size:12px;
+    font-style:normal;
+    text-align:left;
+  }
+  .menu li ul a:hover{
+    color:#000;
+    opacity:1.0;
+    filter:alpha(opacity=100);
+  }
+  .menu #current{
+    background:url(../images/current-bg.gif) top left repeat-x;
+    color:#ffffff;
+  }
+</style>
+
+<div  class="menu">
+  <ul>
+    
+    <% Menu.load_menu.each do |menu| %>
+      <li>
+        <% permissions = Permissao.load_permission(session[:user_id],menu.name).each {|c|  c}%>
+        
+        <% permissions_submenu = Permissao.load_submenu_permission(session[:user_id],menu.name).each {|c|  c}%>
+        <% unless permissions_submenu.include?(:read)%>
+          <%= link_to menu.name, menu.url%>
+          <%submenus = Menu.load_submenu(menu.id)%>
+          <%unless submenus.empty?%>
+            <ul>
+              <% submenus.each do |submenu| %>
+                <%  permissions = Permissao.load_permission(session[:user_id],submenu.name).each {|c|  c}%>
+                <li>
+                  <% unless permissions.include?(:read) %>
+                    <%= link_to submenu.name, submenu.url %>
+                  <%end%>
+                </li>
+              <%end%>
+            </ul>
+          <%end%>
+        <%end%>
+
+      </li>
+    <%end%>
+      
+  </ul>
+  <br style="clear: left" />
+</div>

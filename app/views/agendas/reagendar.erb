@@ -1,0 +1,16 @@
+
+<form id="reagendar">
+<table border="1">
+  <tr>
+    <td>Horario:</td><td><%= text_field_tag :novo_horario %>  </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><%= button_to_remote("Salvar", :update => 'html',
+        :url => {:controller => 'agendas', :action => :reagendamento},
+        :with => "'novo_horario='+$('novo_horario').value+'&horario='+#{params[:horario]}+'&profissional='+#{params[:profissional]}")
+      #:with=>"$('agendar').serialize()" )
+      %></td>
+
+  </tr>
+</table>
+</form>

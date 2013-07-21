@@ -1,0 +1,32 @@
+<h1>Listing estabelecimentos</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Number</th>
+    <th>Complement</th>
+    <th>Neighborhood</th>
+    <th>City</th>
+    <th>Uf</th>
+  </tr>
+
+<% @estabelecimentos.each do |estabelecimento| %>
+  <tr>
+    <td><%=h estabelecimento.name %></td>
+    <td><%=h estabelecimento.address %></td>
+    <td><%=h estabelecimento.number %></td>
+    <td><%=h estabelecimento.complement %></td>
+    <td><%=h estabelecimento.neighborhood %></td>
+    <td><%=h estabelecimento.city %></td>
+    <td><%=h estabelecimento.uf %></td>
+    <td><%= link_to 'Show', estabelecimento %></td>
+    <td><%= link_to 'Edit', edit_estabelecimento_path(estabelecimento) %></td>
+    <td><%= link_to 'Destroy', estabelecimento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New estabelecimento', new_estabelecimento_path %>

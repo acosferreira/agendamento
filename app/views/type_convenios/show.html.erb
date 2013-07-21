@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @type_convenio.name %>
+</p>
+
+<p>
+  <b>Coverage:</b>
+  <%=h @type_convenio.coverage %>
+</p>
+
+<p>
+  <b>Convenio:</b>
+  <%=h @type_convenio.convenio_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_type_convenio_path(@type_convenio) %> |
+<%= link_to 'Back', type_convenios_path %>

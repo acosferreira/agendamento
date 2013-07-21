@@ -1,0 +1,2 @@
+# TODO Operate on the page object
+page.replace_html("data" , :partial => "valid_dates_to_agenda")

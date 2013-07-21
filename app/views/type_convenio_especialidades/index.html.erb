@@ -1,0 +1,22 @@
+<h1>Listing type_convenio_especialidades</h1>
+
+<table>
+  <tr>
+    <th>Type convenio</th>
+    <th>Especialidade</th>
+  </tr>
+
+<% @type_convenio_especialidades.each do |type_convenio_especialidade| %>
+  <tr>
+    <td><%=h type_convenio_especialidade.type_convenio_id %></td>
+    <td><%=h type_convenio_especialidade.especialidade_id %></td>
+    <td><%= link_to 'Show', type_convenio_especialidade %></td>
+    <td><%= link_to 'Edit', edit_type_convenio_especialidade_path(type_convenio_especialidade) %></td>
+    <td><%= link_to 'Destroy', type_convenio_especialidade, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New type_convenio_especialidade', new_type_convenio_especialidade_path %>

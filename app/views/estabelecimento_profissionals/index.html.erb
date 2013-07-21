@@ -1,0 +1,22 @@
+<h1>Listing estabelecimento_profissionals</h1>
+
+<table>
+  <tr>
+    <th>Profissional</th>
+    <th>Estabelecimento</th>
+  </tr>
+
+<% @estabelecimento_profissionals.each do |estabelecimento_profissional| %>
+  <tr>
+    <td><%=h estabelecimento_profissional.profissional_id %></td>
+    <td><%=h estabelecimento_profissional.estabelecimento_id %></td>
+    <td><%= link_to 'Show', estabelecimento_profissional %></td>
+    <td><%= link_to 'Edit', edit_estabelecimento_profissional_path(estabelecimento_profissional) %></td>
+    <td><%= link_to 'Destroy', estabelecimento_profissional, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New estabelecimento_profissional', new_estabelecimento_profissional_path %>

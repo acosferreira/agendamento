@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @newsletter.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @newsletter.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_newsletter_path(@newsletter) %> |
+<%= link_to 'Back', newsletters_path %>

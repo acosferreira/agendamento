@@ -1,0 +1,1 @@
+page.replace_html("data_select" , :partial => "dia_of_especialidade")

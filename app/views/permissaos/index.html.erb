@@ -1,0 +1,30 @@
+<h1>Listing permissaos</h1>
+
+<table>
+  <tr>
+    <th>Menu</th>
+    <th>Grupo</th>
+    <th>View</th>
+    <th>Add</th>
+    <th>Erase</th>
+    <th>Change</th>
+  </tr>
+
+<% @permissaos.each do |permissao| %>
+  <tr>
+    <td><%=h permissao.menu_id %></td>
+    <td><%=h permissao.grupo_id %></td>
+    <td><%=h permissao.view %></td>
+    <td><%=h permissao.add %></td>
+    <td><%=h permissao.erase %></td>
+    <td><%=h permissao.change %></td>
+    <td><%= link_to 'Show', permissao %></td>
+    <td><%= link_to 'Edit', edit_permissao_path(permissao) %></td>
+    <td><%= link_to 'Destroy', permissao, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New permissao', new_permissao_path %>

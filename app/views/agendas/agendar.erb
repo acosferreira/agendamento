@@ -1,0 +1,25 @@
+
+<form id="agendar">
+<table border="1">
+  <tr>
+    <td>Cliente:</td><td><%= text_field_with_auto_complete :cliente, :name, {}, :method => :get %>  </td>
+  </tr>
+  <tr>
+    <td>Convênio:</td><td><%= select_tag "convenio_id" ,"<option></option>"+options_for_select(TypeConvenio.all.collect{ |u| [u.name, u.id] })%>  </td>
+  </tr>
+  <tr>
+    <td>Telefone:</td><td><%= text_field_tag :telefone %>  </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+<%= link_to_remote(image_tag("confirmar.jpg", :size => '20x19', :border=>0, :title => 'Confirmar', :alt => 'Confirmar'), :update => 'html',
+        :url => {:controller => 'agendas', :action => :salvar},
+        :with => "'cliente='+$('cliente_name').value+'&horario='+#{params[:horario]}+'&profissional='+#{params[:profissional]}+'&convenio='+$('convenio_id').value+'&telefone='+$('telefone').value")
+
+%> | <%= link_to_remote(image_tag("voltar.gif", :size => '20x19', :border=>0, :title => 'Voltar', :alt => 'Voltar'),:update=>'html',
+                              :url => {:controller => 'agendas', :action => :voltar}) %></td>
+
+  </tr>
+</table>
+</form>
+

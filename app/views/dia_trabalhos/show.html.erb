@@ -1,0 +1,13 @@
+<p>
+  <b>Profissional especialidade:</b>
+  <%=h @dia_trabalho.profissional_especialidade_id %>
+</p>
+
+<p>
+  <b>Semana:</b>
+  <%=h @dia_trabalho.semana_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_dia_trabalho_path(@dia_trabalho) %> |
+<%= link_to 'Back', dia_trabalhos_path %>

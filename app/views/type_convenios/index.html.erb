@@ -1,0 +1,24 @@
+<h1>Listing type_convenios</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Coverage</th>
+    <th>Convenio</th>
+  </tr>
+
+<% @type_convenios.each do |type_convenio| %>
+  <tr>
+    <td><%=h type_convenio.name %></td>
+    <td><%=h type_convenio.coverage %></td>
+    <td><%=h type_convenio.convenio_id %></td>
+    <td><%= link_to 'Show', type_convenio %></td>
+    <td><%= link_to 'Edit', edit_type_convenio_path(type_convenio) %></td>
+    <td><%= link_to 'Destroy', type_convenio, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New type_convenio', new_type_convenio_path %>

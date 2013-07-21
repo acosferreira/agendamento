@@ -1,0 +1,27 @@
+<% form_tag do %>
+  <%= stylesheet_link_tag 'system' %>
+  <p><%= flash[:notice] %> </p>
+  <table id="login" width="300" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+      <td width="300" valign="top" >
+        <table width="94%" height="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="23%" height="137" >
+              <table class="area_login" width="88%" border="0" align="center" cellspacing="0">
+                
+                <tr>
+                  <td width="36%" height="26"><label for="name">Name:</label></td>
+                  <td width="64%"><%= text_field_tag :login, params[:login] %></td>
+                </tr>
+                <tr>
+                  <td  height="26"><label for="password">Senha:</label></td>
+                  <td><%= password_field_tag :password %></td>
+                </tr>
+                <tr>
+                  <td  height="26">&nbsp;</td>
+                  <td align="right"><%= submit_tag "Login" %>&nbsp;</td>
+                </tr>
+              </table>
+          </tr>
+        </table>
+      <% end %>

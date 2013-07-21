@@ -1,0 +1,19 @@
+<h1>New type_convenio_especialidade</h1>
+
+<% form_for(@type_convenio_especialidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :type_convenio_id %><br />
+    <%= f.text_field :type_convenio_id %>
+  </p>
+  <p>
+    <%= f.label :especialidade_id %><br />
+    <%= f.text_field :especialidade_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', type_convenio_especialidades_path %>

@@ -1,0 +1,20 @@
+<h1>Editing dia_trabalho</h1>
+
+<% form_for(@dia_trabalho) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :profissional_especialidade_id %><br />
+    <%= f.text_field :profissional_especialidade_id %>
+  </p>
+  <p>
+    <%= f.label :semana_id %><br />
+    <%= f.text_field :semana_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @dia_trabalho %> |
+<%= link_to 'Back', dia_trabalhos_path %>

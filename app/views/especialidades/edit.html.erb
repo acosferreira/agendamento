@@ -1,0 +1,24 @@
+<h1>Editing especialidade</h1>
+
+<% form_for(@especialidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.time_select :duration %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @especialidade %> |
+<%= link_to 'Back', especialidades_path %>

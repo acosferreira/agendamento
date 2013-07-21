@@ -1,0 +1,35 @@
+<h1>New permissao</h1>
+
+<% form_for(@permissao) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :menu_id %><br />
+    <%= f.text_field :menu_id %>
+  </p>
+  <p>
+    <%= f.label :grupo_id %><br />
+    <%= f.text_field :grupo_id %>
+  </p>
+  <p>
+    <%= f.label :view %><br />
+    <%= f.check_box :view %>
+  </p>
+  <p>
+    <%= f.label :add %><br />
+    <%= f.check_box :add %>
+  </p>
+  <p>
+    <%= f.label :erase %><br />
+    <%= f.check_box :erase %>
+  </p>
+  <p>
+    <%= f.label :change %><br />
+    <%= f.check_box :change %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', permissaos_path %>

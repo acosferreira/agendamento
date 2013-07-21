@@ -1,0 +1,33 @@
+<p>
+  <b>Menu:</b>
+  <%=h @permissao.menu_id %>
+</p>
+
+<p>
+  <b>Grupo:</b>
+  <%=h @permissao.grupo_id %>
+</p>
+
+<p>
+  <b>View:</b>
+  <%=h @permissao.view %>
+</p>
+
+<p>
+  <b>Add:</b>
+  <%=h @permissao.add %>
+</p>
+
+<p>
+  <b>Erase:</b>
+  <%=h @permissao.erase %>
+</p>
+
+<p>
+  <b>Change:</b>
+  <%=h @permissao.change %>
+</p>
+
+
+<%= link_to 'Edit', edit_permissao_path(@permissao) %> |
+<%= link_to 'Back', permissaos_path %>

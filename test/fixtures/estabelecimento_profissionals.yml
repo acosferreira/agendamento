@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  profissional_id: 1
+  estabelecimento_id: 1
+
+two:
+  profissional_id: 1
+  estabelecimento_id: 1

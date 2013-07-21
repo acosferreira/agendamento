@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  coverage: 1.5
+  convenio_id: 1
+
+two:
+  name: MyString
+  coverage: 1.5
+  convenio_id: 1

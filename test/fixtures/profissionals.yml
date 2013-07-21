@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  number: 1
+  complement: MyString
+  neighborhood: MyString
+  city: MyString
+  uf: MyString
+  gender: MyString
+  birth_date: 2011-07-09
+  crm: 1
+  percentage: 1.5
+
+two:
+  name: MyString
+  address: MyString
+  number: 1
+  complement: MyString
+  neighborhood: MyString
+  city: MyString
+  uf: MyString
+  gender: MyString
+  birth_date: 2011-07-09
+  crm: 1
+  percentage: 1.5

@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  menu_id: 1
+  grupo_id: 1
+  view: false
+  add: false
+  erase: false
+  change: false
+
+two:
+  menu_id: 1
+  grupo_id: 1
+  view: false
+  add: false
+  erase: false
+  change: false

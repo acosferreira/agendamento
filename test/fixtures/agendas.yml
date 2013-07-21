@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 2011-07-09
+  horario_id: 1
+  cliente_id: 1
+  profissional_especialidade_id: 1
+  type_consulta: MyString
+  value: 1.5
+  value_receive: 1.5
+
+two:
+  data: 2011-07-09
+  horario_id: 1
+  cliente_id: 1
+  profissional_especialidade_id: 1
+  type_consulta: MyString
+  value: 1.5
+  value_receive: 1.5

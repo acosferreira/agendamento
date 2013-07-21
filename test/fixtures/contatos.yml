@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  tipo_contato: MyString
+  paciente_id: 1
+  estabelecimento_id: 1
+  profissional_id: 1
+
+two:
+  name: MyString
+  tipo_contato: MyString
+  paciente_id: 1
+  estabelecimento_id: 1
+  profissional_id: 1
